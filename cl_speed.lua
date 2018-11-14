@@ -1,4 +1,8 @@
 local speedlimit = "~r~~h~You havent Done this street!"
+local cord = {
+    x=1.160,
+    y=0.500
+}
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
@@ -438,7 +442,7 @@ Citizen.CreateThread(function()
             else
                 speedlimit = "~r~~h~Contact Developmentt!"
             end
-            DrawTxt(1.160, 0.500, 1.0,1.0,0.55,"~p~Speedlimit: ~w~"..speedlimit.."~p~ mph", 255,255,255,255)
+            DrawTxt(cord.x, cord.y, 1.0,1.0,0.55,"~p~Speedlimit: ~w~"..speedlimit.."~p~ mph", 255,255,255,255)
         end
     end
 end)
