@@ -13,6 +13,8 @@ Citizen.CreateThread(function()
     if IsPedInAnyVehicle(GetPlayerPed(-1)) then
             if street == "Joshua Rd" then
                 speedlimit = 50
+            elseif street == "Lolita Ave" then
+		        speedlimit = 35
             elseif street == "East Joshua Road" then
                 speedlimit = 50
             elseif street == "Marina Dr" then
