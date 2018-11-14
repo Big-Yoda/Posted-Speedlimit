@@ -438,7 +438,7 @@ Citizen.CreateThread(function()
             else
                 speedlimit = "~r~~h~Contact Developmentt!"
             end
-            DrawTxt(1.160, 0.500, 1.0,1.0,0.55,"~p~Speedlimit: ~w~~h~"..speedlimit.."~h~~p~ mph", 255,255,255,255)
+            DrawTxt(1.160, 0.500, 1.0,1.0,0.55,"~p~Speedlimit: ~w~"..speedlimit.."~p~ mph", 255,255,255,255)
         end
     end
 end)
