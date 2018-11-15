@@ -1,4 +1,5 @@
 local speedlimit = "~r~~h~You havent Done this street!"
+local speedlimitshow = true
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
@@ -435,16 +436,28 @@ Citizen.CreateThread(function()
                 speedlimit = 25
             elseif street == "Chianski Passage" then
                 speedlimit = 30
-	    elseif street == "Lolita Ave" then
-		speedlimit = 35
-	    elseif street == "Meringue Ln" then
-		speedlimit = 35
+			elseif street == "Lolita Ave" then
+				speedlimit = 35
+			elseif street == "Meringue Ln" then
+				speedlimit = 35
+			elseif street == "Strangeways Dr" then
+				speedlimit = 30
             else
-                speedlimit = "~r~~h~Contact Developmentt!"
+                speedlimit = "~r~~h~Contact Development!"
             end
-						
+			
+			if IsControlJustPressed(0, 29) then
+				if speedlimitshow == true then
+					speedlimitshow = false
+				else
+					speedlimitshow = true
+				end
+			end
+			
+			if speedlimitshow == true then
             DrawTxt(1.160, 0.500, 1.0,1.0,0.55,"~p~Speedlimit: ~w~"..speedlimit.."~p~ mph", 255,255,255,255)
-        end
+			end
+		end
     end
 end)
 
