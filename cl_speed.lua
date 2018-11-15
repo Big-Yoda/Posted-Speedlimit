@@ -436,12 +436,12 @@ Citizen.CreateThread(function()
                 speedlimit = 25
             elseif street == "Chianski Passage" then
                 speedlimit = 30
-			elseif street == "Lolita Ave" then
-				speedlimit = 35
-			elseif street == "Meringue Ln" then
-				speedlimit = 35
-			elseif street == "Strangeways Dr" then
-				speedlimit = 30
+	    elseif street == "Lolita Ave" then
+		speedlimit = 35
+	    elseif street == "Meringue Ln" then
+		speedlimit = 35
+	    elseif street == "Strangeways Dr" then
+		speedlimit = 30
             else
                 speedlimit = "~r~~h~Contact Development!"
             end
