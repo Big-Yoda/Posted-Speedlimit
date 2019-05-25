@@ -2,12 +2,12 @@ local speedlimit = "~r~~h~You havent Done this street!"
 local speedlimitshow = true
 Citizen.CreateThread(function()
     while true do
-        Citizen.Wait(0)
-        local playerloc = GetEntityCoords(GetPlayerPed(-1))
-        local streethash = GetStreetNameAtCoord(playerloc.x, playerloc.y, playerloc.z)
-        street = GetStreetNameFromHashKey(streethash)
+        local ped = GetPlayerPed(-1)
+        if IsPedInAnyVehicle(ped) then
+            local playerloc = GetEntityCoords(ped)
+            local streethash = GetStreetNameAtCoord(playerloc.x, playerloc.y, playerloc.z)
+            street = GetStreetNameFromHashKey(streethash)
 
-    if IsPedInAnyVehicle(GetPlayerPed(-1)) then
             if street == "Joshua Rd" then
                 speedlimit = 50
             elseif street == "East Joshua Road" then
@@ -436,37 +436,45 @@ Citizen.CreateThread(function()
                 speedlimit = 25
             elseif street == "Chianski Passage" then
                 speedlimit = 30
-	    elseif street == "Lolita Ave" then
-		speedlimit = 35
-	    elseif street == "Meringue Ln" then
-		speedlimit = 35
-	    elseif street == "Strangeways Dr" then
-		speedlimit = 30
+            elseif street == "Lolita Ave" then
+                speedlimit = 35
+            elseif street == "Meringue Ln" then
+                speedlimit = 35
+            elseif street == "Strangeways Dr" then
+                speedlimit = 30
             else
                 speedlimit = "~r~~h~Contact Development!"
             end
-			
-			if IsControlJustPressed(0, 29) then
-				if speedlimitshow == true then
-					speedlimitshow = false
-				else
-					speedlimitshow = true
-				end
-			end
-			
-			if speedlimitshow == true then
-            DrawTxt(1.160, 0.500, 1.0,1.0,0.55,"~p~Speedlimit: ~w~"..speedlimit.."~p~ mph", 255,255,255,255)
-			end
-		end
+            Citizen.Wait(1000)
+        end
     end
 end)
 
-function DrawTxt(x,y ,width,height,scale, text, r,g,b,a)
-    SetTextFont(6)
+Citizen.CreateThread(function()
+    while true do 
+        if IsPedInAnyVehicle(GetPlayerPed(-1)) then
+            if IsControlJustPressed(0, 29) then
+                if speedlimitshow == true then
+                    speedlimitshow = false
+                else
+                    speedlimitshow = true
+                end
+            end
+
+            if speedlimitshow == true then
+                DrawTxt(0.52, 1.35, 1.0, 1.0, 0.30,"Speedlimit: ~y~"..speedlimit, 255, 255, 255, 200)
+            end
+        end
+        Citizen.Wait(0)
+    end
+end)
+
+function DrawTxt(x, y, width, height, scale, text, r, g, b, a)
+    SetTextFont(4)
     SetTextProportional(0)
     SetTextScale(scale, scale)
     SetTextColour(r, g, b, a)
-    SetTextDropShadow(0, 0, 0, 0,255)
+    SetTextDropShadow(0, 0, 0, 0, 255)
     SetTextEdge(1, 0, 0, 0, 255)
     SetTextOutline()
     SetTextEntry("STRING")
