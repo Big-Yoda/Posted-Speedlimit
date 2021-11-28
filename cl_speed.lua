@@ -442,6 +442,24 @@ Citizen.CreateThread(function()
 		speedlimit = 35
 	    elseif street == "Strangeways Dr" then
 		speedlimit = 30
+	    elseif pedStreet == "Peaceful St" then
+                speedLimit = 35
+            elseif pedStreet == "Steele Way" then
+                speedLimit = 20
+            elseif pedStreet == "Tangerine St" then
+                speedLimit = 25
+            elseif pedStreet == "Dry Dock St" then
+                speedLimit = 35
+            elseif pedStreet == "North Archer Ave" then
+                speedLimit = 35
+            elseif pedStreet == "Fantastic Pl" then
+                speedLimit = 30
+            elseif pedStreet == "York St" then
+                speedLimit = 25
+            elseif pedStreet == "Dorset Pl" then
+                speedLimit = 20
+            elseif pedStreet == "Mt Haan Dr" then
+                speedLimit = 60
             else
                 speedlimit = "~r~~h~Contact Development!"
             end
